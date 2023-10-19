@@ -1,13 +1,52 @@
+import { Box, chakra, keyframes } from '@chakra-ui/react'
+import Whatsapp from '../icons/WhatsApp'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+
 const WHATSAPP_REDIRECT_URL = 'https://wa.me/'
+const WHATSAPP_PHONE_NUMBER = '5531999176875'
+const WHATSAPP_BASE_MESSAGE = 'Olá, gostaria de saber mais sobre o as máquinas'
+
+const animationKeyframes = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+`
 
 const WhatsAppWidget = () => {
-  const buildWhatsAppUrl = (phone: string, message: string) => {
-    const url = new URL(WHATSAPP_REDIRECT_URL + phone)
-    url.searchParams.append('text', message)
+  const buildWhatsAppUrl = () => {
+    const url = new URL(WHATSAPP_REDIRECT_URL + WHATSAPP_PHONE_NUMBER)
+    url.searchParams.append('text', WHATSAPP_BASE_MESSAGE)
+
     return url.toString()
   }
 
-  return <></>
+  const pulseAnimation = `${animationKeyframes} 1.5s ease-out infinite`
+
+  return (
+    <Link href={buildWhatsAppUrl()}>
+      <Box
+        as={motion.div}
+        position="fixed"
+        animation={pulseAnimation}
+        right={34}
+        bottom={34}
+        bg="#25d366"
+        color="white"
+        fontSize="40px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        width="40px"
+        height="40px"
+        padding="35px"
+        borderRadius="50%"
+        initial="initial"
+        animate="animate"
+      >
+        <Whatsapp />
+      </Box>
+    </Link>
+  )
 }
 
 export default WhatsAppWidget
