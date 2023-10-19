@@ -8,9 +8,10 @@ const WHATSAPP_PHONE_NUMBER = '5531999176875'
 const WHATSAPP_BASE_MESSAGE = 'Olá, gostaria de saber mais sobre o as máquinas'
 
 const animationKeyframes = keyframes`
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+	0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
   80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
 `
+const PulseAnimation = `${animationKeyframes} 1.5s ease-out infinite`
 
 const WhatsAppWidget = () => {
   const buildWhatsAppUrl = () => {
@@ -20,14 +21,12 @@ const WhatsAppWidget = () => {
     return url.toString()
   }
 
-  const pulseAnimation = `${animationKeyframes} 1.5s ease-out infinite`
-
   return (
     <Link href={buildWhatsAppUrl()}>
       <Box
         as={motion.div}
+        animation={PulseAnimation}
         position="fixed"
-        animation={pulseAnimation}
         right={34}
         bottom={34}
         bg="#25d366"
@@ -40,8 +39,6 @@ const WhatsAppWidget = () => {
         height="40px"
         padding="35px"
         borderRadius="50%"
-        initial="initial"
-        animate="animate"
       >
         <Whatsapp />
       </Box>
