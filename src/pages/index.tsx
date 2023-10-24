@@ -1,8 +1,7 @@
-import BrandCarousel from '../components/BrandsCarousel'
-import FramerStudy from '../components/FramerMotionStudy'
+import BrandsCarousel from '../components/BrandsCarousel'
 
 const Index = () => {
-  return <BrandCarousel />
+  return <BrandsCarousel />
 }
 
 export default Index

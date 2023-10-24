@@ -1,81 +1,126 @@
 import { motion } from 'framer-motion'
-import { Box, HStack, keyframes, Image } from '@chakra-ui/react'
+import {
+  Box,
+  HStack,
+  keyframes,
+  Image,
+  Container,
+  VStack,
+} from '@chakra-ui/react'
 
 interface IBrand {
   name: string
   fileSrc: string
-  delay: string
+  delay?: string
 }
 
 const animationKeyframes = keyframes`
 	0% {
-		transform: translateX(100vw);
-    display: block;
+		transform: translateX(0);
 	}
 
- 80%, 100% {
-		transform: translateX(-100vw);
-    display: none;
-	}
+ 100% {
+    transform: translateX(calc(-100% - 10.2rem));
+	} d
 `
-const HAutoScrollCarrouselAnimation = `${animationKeyframes} 8s linear infinite`
 
 const brands: IBrand[] = [
-  { name: 'Juki Logo', fileSrc: 'juki.png', delay: '0s' },
-  { name: 'Brother Logo', fileSrc: 'brother.png', delay: '1s' },
-  { name: 'Sun Special Logo', fileSrc: 'sun-special.png', delay: '2s' },
-  { name: 'Jack Logo', fileSrc: 'jack.png', delay: '3s' },
+  {
+    fileSrc: 'brother.png',
+    name: 'test1',
+  },
+  {
+    fileSrc: 'jack.png',
+    name: 'test2',
+  },
+  {
+    fileSrc: 'juki.png',
+    name: 'test3',
+  },
+  {
+    fileSrc: 'sun-special.png',
+    name: 'test4',
+  },
 ]
 
-const brandsC: IBrand[] = [
-  { name: 'Juki Logo', fileSrc: 'juki.png', delay: '4s' },
-  { name: 'Brother Logo', fileSrc: 'brother.png', delay: '5s' },
-  { name: 'Sun Special Logo', fileSrc: 'sun-special.png', delay: '6s' },
-  { name: 'Jack Logo', fileSrc: 'jack.png', delay: '7s' },
-]
-
-const BrandBox = ({ brand }: { brand: IBrand }) => (
-  <Box
-    as={motion.div}
-    animation={HAutoScrollCarrouselAnimation}
-    initial={{ x: '100vw' }}
-    position="absolute"
-    background="white"
-    animate={{ animationDelay: brand.delay }}
-    flex-direction="column"
-    align-items="flex-start"
-    display="flex"
-    padding="24px 48px"
-    gap=" 10px"
-    borderRadius="360px"
-    boxShadow="0px 0px 40px 0px rgba(203, 205, 249, 0.60)"
+const BrandCard = ({ brand }: { brand: IBrand }) => (
+  <VStack
+    overflow="hidden"
+    border="0.0625rem solid #dee2e6;"
+    key={brand.name}
+    justifyContent="center"
+    alignItems="center"
+    bg="white"
+    borderRadius="36px"
+    position="relative"
+    gap="1rem"
+    p="24px 48px"
+    boxShadow={'0px 0px 40px 0px rgba(203, 205, 249, 0.30)'}
+    flexGrow={0}
   >
     <Image
       src={`/images/${brand.fileSrc}`}
       alt={brand.name}
+      objectFit="contain"
       w="211px"
-      height="36px"
+      h="36px"
     />
-  </Box>
+  </VStack>
 )
 
-export default function BrandCarousel() {
+export default function BrandsCarousel() {
+  const HFirstAutoScrollCarrouselAnimation = `${animationKeyframes} 15s linear infinite`
+
   return (
-    <HStack
-      margin="0 auto"
-      boxSizing="border-box"
-      overflowX="hidden"
-      w="full"
-      p="10px 0px"
-      h="400px"
-      position="relative"
-    >
-      {brands.map((brand, index) => (
-        <BrandBox key={index} brand={brand} />
-      ))}
-      {brandsC.map((brand, index) => (
-        <BrandBox key={index} brand={brand} />
-      ))}
-    </HStack>
+    <Container maxW="full" h="full" w="full" p="0">
+      <Box
+        overflow="hidden"
+        className="root-container"
+        ml="auto"
+        mr="auto"
+        paddingY="calc(1.5rem * 2)"
+        boxSizing="border-box"
+        maxW="100%"
+      >
+        <VStack
+          className="brand-carousel-containers"
+          alignItems="flex-start"
+          gap="1rem"
+          justifyContent="flex-start"
+          boxSizing="border-box"
+        >
+          <HStack
+            className="carousel-container"
+            boxSizing="border-box"
+            alignItems="center"
+            justifyContent="flex-start"
+            maxW="full"
+            gap="10.2rem"
+            flexWrap="nowrap"
+            flexShrink={0}
+            minW="full"
+          >
+            {[1, 2].map((index) => (
+              <HStack
+                key={index}
+                as={motion.div}
+                animation={HFirstAutoScrollCarrouselAnimation}
+                className="cards-container"
+                boxSizing="border-box"
+                alignItems="center"
+                flexWrap="nowrap"
+                gap="10.2rem"
+                flexShrink={0}
+                minW="full"
+              >
+                {brands.map((brand, index) => (
+                  <BrandCard brand={brand} key={`${brand.name}${index}`} />
+                ))}
+              </HStack>
+            ))}
+          </HStack>
+        </VStack>
+      </Box>
+    </Container>
   )
 }
