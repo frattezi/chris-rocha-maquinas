@@ -7,18 +7,10 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 
+import SearchInput from '@components/SearchInput'
+
 import LogoIcon from '@icons/Logo'
 import SocialIcons from '@icons/Social'
-
-const SearchInput = () => (
-  <InputGroup size="md" maxW="30%">
-    <Input pr="4.5rem" placeholder="Enter password" />
-
-    <InputRightElement width="4.5rem">
-      <SearchIcon />
-    </InputRightElement>
-  </InputGroup>
-)
 
 const MenuItems = () => (
   <HStack>
