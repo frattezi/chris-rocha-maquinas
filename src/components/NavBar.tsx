@@ -1,14 +1,14 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import SocialIcons from "../icons/Social";
-import LogoIcon from "../icons/Logo";
+import { SearchIcon } from '@chakra-ui/icons'
 import {
   Button,
-  Flex,
   HStack,
   Input,
   InputGroup,
   InputRightElement,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
+
+import LogoIcon from '@icons/Logo'
+import SocialIcons from '@icons/Social'
 
 const SearchInput = () => (
   <InputGroup size="md" maxW="30%">
@@ -18,7 +18,7 @@ const SearchInput = () => (
       <SearchIcon />
     </InputRightElement>
   </InputGroup>
-);
+)
 
 const MenuItems = () => (
   <HStack>
@@ -32,7 +32,7 @@ const MenuItems = () => (
       Contato
     </Button>
   </HStack>
-);
+)
 
 const MenuIcons = () => (
   <HStack>
@@ -40,14 +40,15 @@ const MenuIcons = () => (
     <SocialIcons.WhatsApp />
     <SocialIcons.FaceBook />
   </HStack>
-);
+)
 
-export const NavBar = () => (
-  // MenuIcons
-  <HStack position="sticky" p={4} justifyContent="space-between" w="full">
-    <LogoIcon w="18em" h="3em" />
-    <SearchInput />
-    <MenuItems />
-    <MenuIcons />
-  </HStack>
-);
+export function NavBar() {
+  return (
+    <HStack position="sticky" p={4} justifyContent="space-between" w="full">
+      <LogoIcon w="18em" h="3em" />
+      <SearchInput />
+      <MenuItems />
+      <MenuIcons />
+    </HStack>
+  )
+}
