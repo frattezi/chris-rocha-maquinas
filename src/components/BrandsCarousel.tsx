@@ -1,28 +1,13 @@
+import { Box, Container, HStack, Image, VStack } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import {
-  Box,
-  HStack,
-  keyframes,
-  Image,
-  Container,
-  VStack,
-} from '@chakra-ui/react'
+
+import { HSlider } from '@animations/slider'
 
 interface IBrand {
   name: string
   fileSrc: string
   delay?: string
 }
-
-const animationKeyframes = keyframes`
-	0% {
-		transform: translateX(0);
-	}
-
- 100% {
-    transform: translateX(calc(-100% - 10.2rem));
-	} d
-`
 
 const brands: IBrand[] = [
   {
@@ -69,8 +54,6 @@ const BrandCard = ({ brand }: { brand: IBrand }) => (
 )
 
 export default function BrandsCarousel() {
-  const HFirstAutoScrollCarrouselAnimation = `${animationKeyframes} 15s linear infinite`
-
   return (
     <Container maxW="full" h="full" w="full" p="0">
       <Box
@@ -104,7 +87,7 @@ export default function BrandsCarousel() {
               <HStack
                 key={index}
                 as={motion.div}
-                animation={HFirstAutoScrollCarrouselAnimation}
+                animation={HSlider}
                 className="cards-container"
                 boxSizing="border-box"
                 alignItems="center"
