@@ -1,15 +1,18 @@
-import { SearchIcon } from '@chakra-ui/icons'
 import {
   Button,
   HStack,
-  Input,
-  InputGroup,
-  InputRightElement,
+  Icon,
+  IconButton,
+  Show,
+  useDisclosure,
 } from '@chakra-ui/react'
+import { useRef } from 'react'
+import { AiOutlineMenu } from 'react-icons/ai'
+import { PiMagnifyingGlass } from 'react-icons/pi'
 
 import SearchInput from '@components/SearchInput'
 
-import LogoIcon from '@icons/Logo'
+import { LgLogo, SmLogo } from '@icons/Logo'
 import SocialIcons from '@icons/Social'
 
 const MenuItems = () => (
@@ -34,13 +37,43 @@ const MenuIcons = () => (
   </HStack>
 )
 
+const LgScreenNavBar = () => (
+  <HStack justifyContent="space-between" px={16} py={6}>
+    <LgLogo w={56} h={12} />
+    <SearchInput />
+    <MenuItems />
+    <MenuIcons />
+  </HStack>
+)
+
+const SmScreenNavBar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const firstField = useRef()
+
+  return (
+    <HStack justifyContent="space-between" px={6} py={2}>
+      <IconButton
+        icon={<AiOutlineMenu />}
+        aria-label={'Menu'}
+        variant="solid"
+        background="white"
+        color="#5A60FF"
+      />
+      <SmLogo w={44} h={12} />
+      <Icon as={PiMagnifyingGlass} />
+    </HStack>
+  )
+}
+
 export function NavBar() {
   return (
-    <HStack position="sticky" p={4} justifyContent="space-between" w="full">
-      <LogoIcon w="18em" h="3em" />
-      <SearchInput />
-      <MenuItems />
-      <MenuIcons />
-    </HStack>
+    <>
+      <Show above="sm">
+        <LgScreenNavBar />
+      </Show>
+      <Show below="sm">
+        <SmScreenNavBar />
+      </Show>
+    </>
   )
 }

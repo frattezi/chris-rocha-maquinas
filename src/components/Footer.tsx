@@ -25,7 +25,12 @@ const FooterHeading = ({ children }) => {
 export function Footer(props: FlexProps) {
   return (
     <Flex as="footer" py="8rem" backgroundColor="#5A60FF">
-      <HStack justifyContent="space-around" minW="100%">
+      <Flex
+        flexDir={{ base: 'column', sm: 'row' }}
+        gap={{ base: 8, sm: 0 }}
+        justifyContent="space-around"
+        minW="100%"
+      >
         <VStack gap={8}>
           <FooterHeading>Atendimento</FooterHeading>
 
@@ -53,7 +58,7 @@ export function Footer(props: FlexProps) {
             </FooterText>
           </VStack>
         </VStack>
-      </HStack>
+      </Flex>
     </Flex>
   )
 }

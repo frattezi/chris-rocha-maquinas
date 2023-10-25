@@ -4,6 +4,7 @@ import {
   Flex,
   HStack,
   Heading,
+  Show,
   VStack,
 } from '@chakra-ui/react'
 import { MdTune } from 'react-icons/md'
@@ -31,7 +32,9 @@ export default function CardsSection() {
           >
             Filtrar
           </Button>
-          <SearchInput />
+          <Show above="sm">
+            <SearchInput />
+          </Show>
         </HStack>
 
         <Flex flexWrap="wrap" gap={8} pt={8} justifyContent="center">
