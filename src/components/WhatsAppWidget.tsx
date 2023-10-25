@@ -1,17 +1,14 @@
-import { Box, chakra, keyframes } from '@chakra-ui/react'
-import Whatsapp from '../icons/WhatsApp'
+import { Box } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+
+import Whatsapp from '@icons/WhatsApp'
+
+import { PulseAnimation } from '@animations/pulse'
 
 const WHATSAPP_REDIRECT_URL = 'https://wa.me/'
 const WHATSAPP_PHONE_NUMBER = '5531999176875'
 const WHATSAPP_BASE_MESSAGE = 'Olá, gostaria de saber mais sobre o as máquinas'
-
-const animationKeyframes = keyframes`
-	0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-  80% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
-`
-const PulseAnimation = `${animationKeyframes} 1.5s ease-out infinite`
 
 const WhatsAppWidget = () => {
   const buildWhatsAppUrl = () => {
