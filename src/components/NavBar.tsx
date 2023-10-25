@@ -1,9 +1,17 @@
 import {
   Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
   HStack,
   Icon,
   IconButton,
   Show,
+  VStack,
   useDisclosure,
 } from '@chakra-ui/react'
 import { useRef } from 'react'
@@ -16,7 +24,7 @@ import { LgLogo, SmLogo } from '@icons/Logo'
 import SocialIcons from '@icons/Social'
 
 const MenuItems = () => (
-  <HStack>
+  <Flex flexDir={{ base: 'column', sm: 'row' }} gap={{ base: 4, sm: 0 }}>
     <Button variant="ghost" size="sm">
       Produtos
     </Button>
@@ -26,11 +34,11 @@ const MenuItems = () => (
     <Button variant="ghost" size="sm">
       Contato
     </Button>
-  </HStack>
+  </Flex>
 )
 
 const MenuIcons = () => (
-  <HStack>
+  <HStack gap={8}>
     <SocialIcons.Instagram />
     <SocialIcons.WhatsApp />
     <SocialIcons.FaceBook />
@@ -48,20 +56,42 @@ const LgScreenNavBar = () => (
 
 const SmScreenNavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const firstField = useRef()
+  const btnRef = useRef()
 
   return (
-    <HStack justifyContent="space-between" px={6} py={2}>
-      <IconButton
-        icon={<AiOutlineMenu />}
-        aria-label={'Menu'}
-        variant="solid"
-        background="white"
-        color="#5A60FF"
-      />
-      <SmLogo w={44} h={12} />
-      <Icon as={PiMagnifyingGlass} />
-    </HStack>
+    <>
+      <HStack justifyContent="space-between" px={6} py={2}>
+        <Icon as={PiMagnifyingGlass} />
+        <SmLogo w={44} h={12} />
+        <IconButton
+          icon={<AiOutlineMenu />}
+          aria-label={'Menu'}
+          variant="solid"
+          background="white"
+          color="#5A60FF"
+          onClick={onOpen}
+        />
+      </HStack>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Menu</DrawerHeader>
+
+          <DrawerBody>
+            <VStack gap={8}>
+              <MenuItems />
+              <MenuIcons />
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   )
 }
 

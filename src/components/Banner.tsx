@@ -36,7 +36,7 @@ export default function Banner() {
         </BannerHeading>
       </VStack>
 
-      <Show above="sm">
+      <Show above="lg">
         <Image
           src={`/images/banner.png`}
           alt={'Website Banner'}
