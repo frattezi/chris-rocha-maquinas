@@ -1,5 +1,6 @@
 import { Container } from '@chakra-ui/react'
 
+import AboutUs from '@components/AboutUs'
 import Banner from '@components/Banner'
 import BrandsCarousel from '@components/BrandsCarousel'
 import CardsSection from '@components/CardsSection'
@@ -15,6 +16,7 @@ const Index = () => {
       <WhatsAppWidget />
       <BrandsCarousel />
       <CardsSection />
+      <AboutUs />
       <Footer />
     </Container>
   )
