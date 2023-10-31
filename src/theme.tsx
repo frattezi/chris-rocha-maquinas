@@ -10,6 +10,10 @@ const breakpoints = {
 }
 
 const theme = extendTheme({
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
   semanticTokens: {
     colors: {
       text: {
