@@ -52,14 +52,18 @@ function Filters() {
 
       <VStack backgroundColor="#F8F8FB" w="full" h="full" pt={4} gap={4} px={4}>
         {filters.map((filter) => (
-          <FormControl>
+          <FormControl key={filter.label}>
             <VStack gap={4} alignItems="flex-start">
-              <FormLabel mb={0}>{filter.label}</FormLabel>
+              <FormLabel mb={0} fontWeight="bold">
+                {filter.label}
+              </FormLabel>
 
               <Grid gridTemplateColumns="1fr 1fr" gridGap={3} w="full">
                 {filter.items.map((item) => (
                   <GridItem>
-                    <Checkbox>{item}</Checkbox>
+                    <Checkbox size="lg" colorScheme="purple">
+                      {item}
+                    </Checkbox>
                   </GridItem>
                 ))}
               </Grid>
@@ -101,7 +105,7 @@ export default function CardsSection() {
             flexDir={{ base: 'column', md: 'row' }}
             w="full"
             gap={8}
-            alignItems="flex-start"
+            alignItems="start"
           >
             <Hide below="md">
               <Filters />

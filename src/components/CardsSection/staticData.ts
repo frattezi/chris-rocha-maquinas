@@ -36,5 +36,4 @@ export const filters = [
     ],
   },
   { label: 'Fios', items: ['1', '2', '3', '4'] },
-  { label: 'Modelos', items: ['Overlock', 'Interlock', 'Juki', 'Sun Special'] },
 ]

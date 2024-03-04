@@ -1,6 +1,12 @@
 import { extendTheme } from '@chakra-ui/react'
+import '@fontsource/poppins'
 
-const fonts = { mono: `'Menlo', monospace` }
+const fonts = {
+  fonts: {
+    heading: `'Poppins', sans-serif`,
+    body: `'Poppins', sans-serif`,
+  },
+}
 
 const breakpoints = {
   sm: '40em',
