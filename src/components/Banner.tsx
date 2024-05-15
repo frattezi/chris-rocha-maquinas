@@ -1,22 +1,37 @@
-import { HStack, Heading, Image, Show, VStack } from '@chakra-ui/react'
+import { As, HStack, Heading, Image, Show, VStack } from '@chakra-ui/react'
 
-const BannerHeading = ({ children, size = 'lg' }) => (
-  <Heading
-    size={size}
-    color="white"
-    noOfLines={{ base: 4, sm: 2 }}
-    textAlign={{ base: 'center', sm: 'start' }}
-  >
-    {children}
-  </Heading>
-)
+interface BannerHeadingProps {
+  as: As
+  size?: string
+  fontWeight?: 'black' | 'medium'
+  children?: React.ReactNode
+}
+
+function BannerHeading({
+  as = 'h1',
+  size = 'xl',
+  fontWeight = 'black',
+  children = '',
+}: BannerHeadingProps) {
+  return (
+    <Heading
+      as={as}
+      size={size}
+      color="white"
+      fontWeight={fontWeight}
+      textAlign={{ base: 'center', xl: 'left' }}
+    >
+      {children}
+    </Heading>
+  )
+}
 
 export default function Banner() {
   return (
     <HStack
       w="100%"
-      background="#5A60FF"
-      justifyContent={{ base: 'center', sm: 'space-between' }}
+      background="#1D23AB"
+      justifyContent={{ base: 'center', xl: 'space-between' }}
       gap={0}
       px={{ base: 4, sm: 0 }}
       py={{ base: 8, sm: 0 }}
@@ -26,17 +41,18 @@ export default function Banner() {
         maxW="xl"
         gap={8}
         w="full"
-        ml={{ base: 0, sm: 44 }}
+        ml={{ base: 0, xl: 44 }}
       >
-        <BannerHeading>
+        <BannerHeading as="h1" size="xl" fontWeight="black">
           Compre, troque ou conserte sua máquina de costura
         </BannerHeading>
-        <BannerHeading size="md">
+
+        <BannerHeading as="h3" size="lg" fontWeight="medium">
           As melhores marcas e os menores preços você encontra aqui!{' '}
         </BannerHeading>
       </VStack>
 
-      <Show above="lg">
+      <Show above="xl">
         <Image
           src={`/images/banner.png`}
           alt={'Website Banner'}
