@@ -23,7 +23,6 @@ export default function Card() {
       gap={4}
       px={8}
       justifyContent="center"
-      minW="300px"
       border="1px solid #1D23AB"
       borderRadius="12px"
       alignSelf="flex-start"
