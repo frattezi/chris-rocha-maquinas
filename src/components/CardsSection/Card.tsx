@@ -14,7 +14,6 @@ import { LightOn, Needle, Noise, Scissors } from '@icons/CardIcons'
 const icons = [Scissors, LightOn, Needle, Noise]
 
 export default function Card() {
-  // use useDisclosure
   const { isOpen, onToggle } = useDisclosure()
 
   return (
