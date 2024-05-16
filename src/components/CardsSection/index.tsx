@@ -43,10 +43,10 @@ function Filters() {
           justifyContent="flex-start"
           w="full"
         >
-          <Text color="#5A60FF" as="b">
+          <Text color="primaryBlue400" as="b">
             Filtrar
           </Text>
-          <MdTune color="#5A60FF" />
+          <MdTune color="primaryBlue400" />
         </HStack>
       </Hide>
 
@@ -114,9 +114,9 @@ export default function CardsSection() {
             <Show below="md">
               <Button
                 variant="outline"
-                color="#5A60FF"
+                color="primaryBlue400"
                 borderRadius="16px"
-                borderColor="#5A60FF"
+                borderColor="primaryBlue400"
                 rightIcon={<MdTune />}
                 onClick={onOpen}
               >

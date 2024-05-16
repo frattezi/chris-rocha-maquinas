@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container, Flex, VStack } from '@chakra-ui/react'
 
 import AboutUs from '@components/AboutUs'
 import Banner from '@components/Banner'
@@ -10,14 +10,16 @@ import WhatsAppWidget from '@components/WhatsAppWidget'
 
 const Index = () => {
   return (
-    <Container minW="100vw" p={0}>
+    <>
       <NavBar />
       <Banner />
       <WhatsAppWidget />
       <BrandsCarousel />
-      <AboutUs />
-      <Footer />
-    </Container>
+      <VStack spacing={16}>
+        <AboutUs />
+        <Footer />
+      </VStack>
+    </>
   )
 }
 

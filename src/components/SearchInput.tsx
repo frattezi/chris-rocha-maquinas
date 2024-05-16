@@ -3,7 +3,7 @@ import { Input, InputGroup, InputRightElement } from '@chakra-ui/react'
 
 export default function SearchInput() {
   return (
-    <InputGroup w={96} color="#5A60FF" borderColor="#5A60FF">
+    <InputGroup w={96} color="primaryBlue400" borderColor="primaryBlue400">
       <Input
         pr="4.5rem"
         placeholder="Pesquisar em máquinas"

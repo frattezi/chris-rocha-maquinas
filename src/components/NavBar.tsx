@@ -68,7 +68,7 @@ const SmScreenNavBar = () => {
           aria-label={'Menu'}
           variant="solid"
           background="white"
-          color="#5A60FF"
+          color="primaryBlue400"
           onClick={onOpen}
         />
       </HStack>
@@ -98,10 +98,10 @@ const SmScreenNavBar = () => {
 export function NavBar() {
   return (
     <>
-      <Show above="sm">
+      <Show above="lg">
         <LgScreenNavBar />
       </Show>
-      <Show below="sm">
+      <Show below="lg">
         <SmScreenNavBar />
       </Show>
     </>

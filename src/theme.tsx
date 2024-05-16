@@ -41,6 +41,10 @@ const theme = extendTheme({
   },
   colors: {
     black: '#16161D',
+    primaryBlue100: '#CBCDF9',
+    primaryBlue200: '#9FA3FF',
+    primaryBlue300: '#5A60FF',
+    primaryBlue400: '#1D23AB',
   },
   fonts,
   breakpoints,

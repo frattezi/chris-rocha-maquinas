@@ -22,7 +22,7 @@ export default function Card() {
       gap={4}
       px={8}
       justifyContent="center"
-      border="1px solid #1D23AB"
+      border="1px solid primaryBlue400"
       borderRadius="12px"
       alignSelf="flex-start"
     >
@@ -50,10 +50,10 @@ export default function Card() {
       <Button
         variant="outline"
         borderRadius="36px"
-        borderColor="#1D23AB"
+        borderColor="primaryBlue400"
         onClick={onToggle}
       >
-        <Text color="#1D23AB" fontFamily="Poppins">
+        <Text color="primaryBlue400" fontFamily="Poppins">
           Ver Mais
         </Text>
       </Button>

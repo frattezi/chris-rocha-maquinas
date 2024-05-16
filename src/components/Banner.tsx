@@ -30,7 +30,7 @@ export default function Banner() {
   return (
     <HStack
       w="100%"
-      background="#1D23AB"
+      background="primaryBlue400"
       justifyContent={{ base: 'center', xl: 'space-between' }}
       gap={0}
       px={{ base: 4, sm: 0 }}

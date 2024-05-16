@@ -1,12 +1,4 @@
-import {
-  Box,
-  Flex,
-  FlexProps,
-  HStack,
-  Heading,
-  Text,
-  VStack,
-} from '@chakra-ui/react'
+import { Flex, HStack, Heading, Text, VStack } from '@chakra-ui/react'
 import { MdAlternateEmail, MdLocationOn, MdPhoneAndroid } from 'react-icons/md'
 
 const FooterText = ({ children, Icon }) => {
@@ -22,11 +14,11 @@ const FooterHeading = ({ children }) => {
   return <Heading color="white">{children}</Heading>
 }
 
-export function Footer(props: FlexProps) {
+export function Footer() {
   return (
-    <Flex as="footer" py="8rem" backgroundColor="#5A60FF">
+    <Flex as="footer" py="8rem" backgroundColor="primaryBlue400" w="full">
       <Flex
-        flexDir={{ base: 'column', sm: 'row' }}
+        flexDir={{ base: 'column', lg: 'row' }}
         gap={{ base: 8, sm: 0 }}
         justifyContent="space-around"
         minW="100%"
