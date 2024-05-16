@@ -1,39 +1,78 @@
-import { Divider, Flex, HStack, Heading, Text, VStack } from '@chakra-ui/react'
-import { MdBalance } from 'react-icons/md'
-import { PiEyeLight, PiTarget } from 'react-icons/pi'
+import {
+  Box,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  Hide,
+  Show,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
+import { IconType } from 'react-icons'
+import { GiArcheryTarget, GiInjustice, GiSpyglass } from 'react-icons/gi'
 
-const AboutCard = ({ title, description, Icon }) => {
-  return (
-    <VStack
-      border="1px solid #5A60FF"
-      borderRadius="1rem"
-      justifyContent={{ base: 'center', md: 'flex-start' }}
-      p={5}
-      flex={1}
-      minH={{ base: '21rem', md: '17rem' }}
-      maxW={{ base: '100%', md: '15rem' }}
-      boxShadow="15px 10px 15px 0px rgba(0,0,0,0.2)"
-    >
-      <HStack>
-        <Heading size="md">{title}</Heading>
-        <Icon />
-      </HStack>
-      <Text>{description}</Text>
-    </VStack>
-  )
+interface AboutCardProps {
+  title: string
+  description: string
+  Icon: IconType
 }
-export default function AboutUs() {
+
+const aboutCardConfiguration: AboutCardProps[] = [
+  {
+    title: 'OBJETIVO',
+    description:
+      'Oferecer aos nossos clientes excelência no atendimento tanto na venda de nossos produtos, quanto na assistência técnica.',
+    Icon: GiArcheryTarget,
+  },
+  {
+    title: 'VALORES',
+    description:
+      'Amor ao que nos propusemos a fazer. Satisfação em constatar que o cliente foi bem atendido. Respeito e cordialidade no tratamento aos clientes, fornecedores e colaboradores.',
+    Icon: GiInjustice,
+  },
+  {
+    title: 'VISÃO',
+    description:
+      'Sermos referência no mercado de máquinas de costura, buscando sempre soluções específicas para cada consumidor.',
+    Icon: GiSpyglass,
+  },
+]
+
+const AboutCard = ({ title, description, Icon }: AboutCardProps) => {
   return (
     <Flex
-      w="100vw"
-      justifyContent="center"
-      gap={0}
-      p={16}
-      //   background="linear-gradient(45deg, transparent 40px, #5A60FF 40px)"
-      //   clipPath="polygon(0 1%, 100% 0%, 100% 18%, 0 47%)"
+      p={4}
+      gap={4}
+      flex={1}
+      color="white"
+      alignItems="center"
+      borderRadius="1rem"
+      backgroundColor="primaryBlue400"
+      maxW={{ base: 'unset', md: 'lg' }}
+      flexDir={{ base: 'row', md: 'column' }}
+      boxShadow="15px 10px 15px 0px rgba(0,0,0,0.2)"
     >
+      <VStack gap={2} minW={{ base: '6rem', lg: 'unset' }}>
+        <Icon size={46} fontWeight="normal" />
+        <Heading size="md">{title}</Heading>
+      </VStack>
+
+      <Show below="md">
+        <Divider orientation="vertical" />
+      </Show>
+
+      <Text color="white">{description}</Text>
+    </Flex>
+  )
+}
+
+export default function AboutUs() {
+  return (
+    <Flex justifyContent="center" gap={0} px={{ base: 2, md: 8 }}>
       <VStack alignItems="center" gap={16} textAlign="center">
-        <Heading color="#5A60FF">Quem Somos</Heading>
+        <Heading color="primaryBlue400">Quem Somos</Heading>
+
         <Text w={{ base: '100%', md: '60%' }}>
           Somos a CRIS ROCHA MÁQUINAS LTDA. Um a Empresa inserida a mais de 20
           anos no mercado de Máquinas de Costura Industrias convencionais e
@@ -44,35 +83,16 @@ export default function AboutUs() {
           assistência técnica.
         </Text>
 
-        <Divider />
+        <Divider borderWidth="2px" w="70%" />
 
         <Flex
-          w="80%"
           gap={8}
           flexDirection={{ base: 'column', md: 'row' }}
           justifyContent="space-between"
         >
-          <AboutCard
-            Icon={PiTarget}
-            title="OBJETIVO"
-            description="Oferecer aos nossos clientes excelência no atendimento tanto na venda
-          de nossos produtos, quanto na assistência técnica."
-          />
-
-          <AboutCard
-            Icon={MdBalance}
-            title="VALORES"
-            description="Amor ao que nos propusemos a fazer. Satisfação em constatar que o
-          cliente foi bem atendido. Respeito e cordialidade no tratamento aos
-          clientes , fornecedores e colaboradores."
-          />
-
-          <AboutCard
-            Icon={PiEyeLight}
-            title="VISÃO"
-            description="          Sermos referência no mercado de máquinas de costura, buscando sempre
-          soluções específicas para cada consumidor."
-          />
+          {aboutCardConfiguration.map((card, index) => (
+            <AboutCard key={`${index}.${card.title}`} {...card} />
+          ))}
         </Flex>
       </VStack>
     </Flex>
