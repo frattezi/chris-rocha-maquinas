@@ -59,8 +59,8 @@ function Filters() {
               </FormLabel>
 
               <Grid gridTemplateColumns="1fr 1fr" gridGap={3} w="full">
-                {filter.items.map((item) => (
-                  <GridItem>
+                {filter.items.map((item, index) => (
+                  <GridItem key={`${item}-${index}`}>
                     <Checkbox size="lg" colorScheme="purple">
                       {item}
                     </Checkbox>
