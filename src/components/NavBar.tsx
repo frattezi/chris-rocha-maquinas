@@ -14,6 +14,7 @@ import {
   VStack,
   useDisclosure,
 } from '@chakra-ui/react'
+import Link from 'next/link'
 import { useRef } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { PiMagnifyingGlass } from 'react-icons/pi'
@@ -25,9 +26,11 @@ import SocialIcons from '@icons/Social'
 
 const MenuItems = () => (
   <Flex flexDir={{ base: 'column', sm: 'row' }} gap={{ base: 4, sm: 0 }}>
-    <Button variant="ghost" size="sm">
-      Produtos
-    </Button>
+    <Link href="/search">
+      <Button variant="ghost" size="sm">
+        Produtos
+      </Button>
+    </Link>
     <Button variant="ghost" size="sm">
       Sobre
     </Button>
@@ -47,7 +50,9 @@ const MenuIcons = () => (
 
 const LgScreenNavBar = () => (
   <HStack justifyContent="space-between" px={16} py={6}>
-    <LgLogo w={56} h={12} />
+    <Link href="/">
+      <LgLogo w={56} h={12} />
+    </Link>
     <SearchInput />
     <MenuItems />
     <MenuIcons />
@@ -62,7 +67,11 @@ const SmScreenNavBar = () => {
     <>
       <HStack justifyContent="space-between" px={6} py={2}>
         <Icon as={PiMagnifyingGlass} />
-        <SmLogo w={44} h={12} />
+
+        <Link href="/">
+          <SmLogo w={44} h={12} />
+        </Link>
+
         <IconButton
           icon={<AiOutlineMenu />}
           aria-label={'Menu'}
@@ -72,6 +81,7 @@ const SmScreenNavBar = () => {
           onClick={onOpen}
         />
       </HStack>
+
       <Drawer
         isOpen={isOpen}
         placement="right"
