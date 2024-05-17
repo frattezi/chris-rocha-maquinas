@@ -11,6 +11,7 @@ import WhatsAppWidget from '@components/WhatsAppWidget'
 const Index = () => {
   return (
     <>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <NavBar />
       <Banner />
       <WhatsAppWidget />

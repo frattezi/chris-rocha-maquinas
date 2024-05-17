@@ -1,3 +1,5 @@
+export {}
+
 const machines = [
   {
     id: 1,
