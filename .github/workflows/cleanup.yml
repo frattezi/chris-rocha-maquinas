@@ -9,13 +9,9 @@ jobs:
   if_merged:
     runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo The PR was merged
+      - run: |
+          echo The PR was merged
 
-    - name: test test CLI
-      run: ${{ github.event.number }}
-
-
-
+      - name: test test CLI
+        run: ${{ github.event.number }}
