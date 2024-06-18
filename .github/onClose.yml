@@ -2,8 +2,7 @@ name: Cleanup after PR
 
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
 
 jobs:
   build-and-deploy:
@@ -18,5 +17,5 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Vercel CLI
+      - name: Install test CLI
         run: ${{ github.event.number }}
