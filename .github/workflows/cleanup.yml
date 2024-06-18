@@ -14,4 +14,4 @@ jobs:
           echo The PR was merged
 
       - name: test test CLI
-        run: ${{ github.event.number }}
+        run: echo ${{ github.event.number }}
