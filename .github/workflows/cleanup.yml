@@ -1,0 +1,17 @@
+name: Cleanup after PR
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+          echo The PR was merged
+
+      - name: test test CLI
+        run: echo ${{ github.event.number }}
