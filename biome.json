@@ -18,14 +18,14 @@
     ]
   },
   "formatter": {
-    "indentStyle": "tab",
-    "indentWidth": 1,
     "ignore": [
       "node_modules/**",
       "dist/**",
       ".vercel/**",
       ".next/**",
       ".vscode/**"
-    ]
+    ],
+    "indentWidth": 2,
+    "indentStyle": "space"
   }
 }

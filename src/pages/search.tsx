@@ -6,16 +6,16 @@ import { Footer } from "@components/Footer";
 import { NavBar } from "@components/NavBar";
 
 const Index = () => {
-	const { searchParams } = useUrlSearchParams();
-	console.log({ searchParams });
+  const { searchParams } = useUrlSearchParams();
+  console.log({ searchParams });
 
-	return (
-		<Container minW="100vw" p={0}>
-			<NavBar />
-			<CardsSection />
-			<Footer />
-		</Container>
-	);
+  return (
+    <Container minW="100vw" p={0}>
+      <NavBar />
+      <CardsSection />
+      <Footer />
+    </Container>
+  );
 };
 
 export default Index;
