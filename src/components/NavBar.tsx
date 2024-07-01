@@ -55,7 +55,6 @@ const LgScreenNavBar = () => (
     </Link>
     <SearchInput />
     <MenuItems />
-    <MenuIcons />
   </HStack>
 );
 
@@ -66,12 +65,6 @@ const SmScreenNavBar = () => {
   return (
     <>
       <HStack justifyContent="space-between" px={6} py={2}>
-        <Icon as={PiMagnifyingGlass} />
-
-        <Link href="/">
-          <SmLogo w={44} h={12} />
-        </Link>
-
         <IconButton
           icon={<AiOutlineMenu />}
           aria-label={"Menu"}
@@ -80,6 +73,8 @@ const SmScreenNavBar = () => {
           color="primaryBlue400"
           onClick={onOpen}
         />
+
+        <SearchInput />
       </HStack>
 
       <Drawer
@@ -96,7 +91,9 @@ const SmScreenNavBar = () => {
           <DrawerBody>
             <VStack gap={8}>
               <MenuItems />
-              <MenuIcons />
+              <Link href="/">
+                <SmLogo w={40} h={12} />
+              </Link>
             </VStack>
           </DrawerBody>
         </DrawerContent>

@@ -37,3 +37,15 @@ export const filters = [
   },
   { label: "Fios", items: ["1", "2", "3", "4"] },
 ];
+
+export const resourcesFilters = [
+  { label: "luz de led no cabeçote", icon: "" },
+  { label: "posicionador de agulha", icon: "" },
+  { label: "painel de controle", icon: "" },
+  { label: "comando de voz", icon: "" },
+  { label: "levantamento de calçador", icon: "" },
+  { label: "corte de linha", icon: "" },
+  { label: "retrocesso automático", icon: "" },
+  { label: "parada de agulha", icon: "" },
+  { label: "Calçador acionado por solenoide (suprime ruídos)", icon: "" },
+];

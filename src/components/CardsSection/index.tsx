@@ -25,7 +25,7 @@ import {
 import { MdTune } from "react-icons/md";
 
 import Card from "./Card";
-import { filters } from "./staticData";
+import { filters, resourcesFilters } from "./staticData";
 
 function Filters() {
   return (
@@ -51,6 +51,18 @@ function Filters() {
       </Hide>
 
       <VStack backgroundColor="#F8F8FB" w="full" h="full" pt={4} gap={4} px={4}>
+        <FormControl>
+          <VStack gap={4} alignItems="flex-start">
+            <FormLabel mb={0} fontWeight="bold">
+              Recursos
+            </FormLabel>
+            {resourcesFilters.map((filter) => (
+              <Checkbox size="lg" colorScheme="purple" key={filter.label}>
+                {filter.label}
+              </Checkbox>
+            ))}
+          </VStack>
+        </FormControl>
         {filters.map((filter) => (
           <FormControl key={filter.label}>
             <VStack gap={4} alignItems="flex-start">
@@ -60,7 +72,7 @@ function Filters() {
 
               <Grid gridTemplateColumns="1fr 1fr" gridGap={3} w="full">
                 {filter.items.map((item, index) => (
-                  <GridItem key={`${item}-${index}`}>
+                  <GridItem key={`${item}`}>
                     <Checkbox size="lg" colorScheme="purple">
                       {item}
                     </Checkbox>

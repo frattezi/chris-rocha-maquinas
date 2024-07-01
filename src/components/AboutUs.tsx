@@ -1,16 +1,7 @@
-import {
-  Box,
-  Divider,
-  Flex,
-  HStack,
-  Heading,
-  Hide,
-  Show,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import type { IconType } from "react-icons";
+import { Divider, Flex, Heading, Show, Text, VStack } from "@chakra-ui/react";
+
 import { GiArcheryTarget, GiInjustice, GiSpyglass } from "react-icons/gi";
+import type { IconType } from "react-icons";
 
 interface AboutCardProps {
   title: string;

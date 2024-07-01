@@ -1,18 +1,43 @@
-import { SearchIcon } from "@chakra-ui/icons";
-import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import { useRouter } from "next/router";
 
 export default function SearchInput() {
-  return (
-    <InputGroup w={96} color="primaryBlue400" borderColor="primaryBlue400">
-      <Input
-        pr="4.5rem"
-        placeholder="Pesquisar em máquinas"
-        borderRadius="360px"
-      />
+  const router = useRouter();
 
-      <InputRightElement width="4.5rem">
-        <SearchIcon />
-      </InputRightElement>
-    </InputGroup>
+  const items = [
+    {
+      id: 0,
+      name: "Cotton",
+    },
+    {
+      id: 1,
+      name: "Polyester",
+    },
+    {
+      id: 2,
+      name: "Dobby",
+    },
+    {
+      id: 3,
+      name: "Rayon",
+    },
+    {
+      id: 4,
+      name: "Spandex",
+    },
+  ];
+
+  function onSelect(item) {
+    router.push(`/search?query=${item.name}`);
+  }
+
+  return (
+    <div style={{ width: "35rem", zIndex: "100" }}>
+      <ReactSearchAutocomplete
+        items={items}
+        styling={{ clearIconMargin: "0px 14px 0 0" }}
+        onSelect={onSelect}
+      />
+    </div>
   );
 }
