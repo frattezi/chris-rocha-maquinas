@@ -8,7 +8,6 @@ import {
   DrawerOverlay,
   Flex,
   HStack,
-  Icon,
   IconButton,
   Show,
   VStack,
@@ -17,16 +16,14 @@ import {
 import Link from "next/link";
 import { useRef } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { PiMagnifyingGlass } from "react-icons/pi";
 
 import SearchInput from "@components/SearchInput";
 
 import { LgLogo, SmLogo } from "@icons/Logo";
-import SocialIcons from "@icons/Social";
 
 const MenuItems = () => (
   <Flex flexDir={{ base: "column", sm: "row" }} gap={{ base: 4, sm: 0 }}>
-    <Link href="/search">
+    <Link href="/search" aria-label="Página de produtos">
       <Button variant="ghost" size="sm">
         Produtos
       </Button>
@@ -34,18 +31,13 @@ const MenuItems = () => (
     <Button variant="ghost" size="sm">
       Sobre
     </Button>
-    <Button variant="ghost" size="sm">
-      Contato
-    </Button>
+    {/* Make this scrol to footer element   */}
+    <Link href="/contact" aria-label="Página de contato">
+      <Button variant="ghost" size="sm">
+        Contato
+      </Button>
+    </Link>
   </Flex>
-);
-
-const MenuIcons = () => (
-  <HStack gap={8}>
-    <SocialIcons.Instagram />
-    <SocialIcons.WhatsApp />
-    <SocialIcons.FaceBook />
-  </HStack>
 );
 
 const LgScreenNavBar = () => (
