@@ -29,8 +29,14 @@ function AppHead() {
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html>
+      <Html lang="pt-br">
         <AppHead />
+
+        <title>Chris Rocha Máquinas</title>
+        <meta
+          name="description"
+          content="Loja online Chris Rocha Máquinas. Compre máquinas de costura das melhores marcas do marcado."
+        />
 
         <body>
           <ColorModeScript />

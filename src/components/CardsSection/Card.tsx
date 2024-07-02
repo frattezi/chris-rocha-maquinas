@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Collapse,
   HStack,
@@ -42,7 +41,7 @@ export default function Card() {
         maxW="250px"
         textAlign={"center"}
       >
-        Reta Jack f5 direct drive aisdjiajsdijaisd asidjasidjias
+        Reta Jack f5 direct drive
       </Text>
 
       <HStack>

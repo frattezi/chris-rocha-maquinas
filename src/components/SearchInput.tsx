@@ -1,5 +1,5 @@
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import { useRouter } from "next/router";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 export default function SearchInput() {
   const router = useRouter();
@@ -35,6 +35,7 @@ export default function SearchInput() {
     <div style={{ width: "35rem", zIndex: "100" }}>
       <ReactSearchAutocomplete
         items={items}
+        aria-label="Procure pelo nome da máquina"
         styling={{ clearIconMargin: "0px 14px 0 0" }}
         onSelect={onSelect}
       />

@@ -54,7 +54,7 @@ export default function Banner() {
           Compre, troque ou conserte sua máquina de costura
         </BannerHeading>
 
-        <BannerHeading as="h3" size="lg" fontWeight="medium">
+        <BannerHeading as="h2" size="lg" fontWeight="medium">
           As melhores marcas e os menores preços você encontra aqui!{" "}
         </BannerHeading>
       </VStack>

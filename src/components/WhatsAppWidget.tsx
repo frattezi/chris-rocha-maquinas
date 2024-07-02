@@ -19,7 +19,11 @@ const WhatsAppWidget = () => {
   };
 
   return (
-    <Link href={buildWhatsAppUrl()}>
+    <Link
+      href={buildWhatsAppUrl()}
+      target="_blank"
+      aria-label="Entre em contato no WhatsApp"
+    >
       <Box
         as={motion.div}
         animation={PulseAnimation}
