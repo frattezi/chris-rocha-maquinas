@@ -17,7 +17,6 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Show,
   Text,
   VStack,
   useDisclosure,
@@ -95,14 +94,19 @@ export default function CardsSection() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Filters</ModalHeader>
+          <ModalHeader>Filtros</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Filters />
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={onClose}
+              aria-label="Fechar menu de filtros"
+            >
               Close
             </Button>
           </ModalFooter>
@@ -123,18 +127,6 @@ export default function CardsSection() {
               <Filters />
             </Hide>
 
-            <Show below="md">
-              <Button
-                variant="outline"
-                color="primaryBlue400"
-                borderRadius="16px"
-                borderColor="primaryBlue400"
-                rightIcon={<MdTune />}
-                onClick={onOpen}
-              >
-                Filtrar
-              </Button>
-            </Show>
             <Flex
               flexWrap="wrap"
               gap={8}
