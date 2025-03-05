@@ -8,18 +8,18 @@ import { NavBar } from "@components/NavBar";
 import WhatsAppWidget from "@components/WhatsAppWidget";
 
 const Index = () => {
-  return (
-    <>
-      <NavBar />
-      <Banner />
-      <WhatsAppWidget />
-      <BrandsCarousel />
-      <VStack spacing={16}>
-        <AboutUs />
-        <Footer />
-      </VStack>
-    </>
-  );
+	return (
+		<>
+			<Banner />
+
+			<BrandsCarousel />
+
+			<VStack spacing={16}>
+				<AboutUs />
+				<Footer />
+			</VStack>
+		</>
+	);
 };
 
 export default Index;

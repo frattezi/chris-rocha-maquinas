@@ -1,4 +1,4 @@
-import { keyframes } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 
 const pulseKeyframes = keyframes`
     0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }

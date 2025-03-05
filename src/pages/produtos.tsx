@@ -7,17 +7,14 @@ import { Footer } from "@components/Footer";
 import { NavBar } from "@components/NavBar";
 
 const Index = () => {
-  const { searchParams } = useUrlSearchParams();
+	const { searchParams } = useUrlSearchParams();
 
-  return (
-    <Container minW="100vw" p={0}>
-      <NavBar />
-      <CardsSection />
-      <Footer />
-
-      <SearchWidget />
-    </Container>
-  );
+	return (
+		<Container minW="100vw" p={0}>
+			<CardsSection />
+			<Footer />
+		</Container>
+	);
 };
 
 export default Index;

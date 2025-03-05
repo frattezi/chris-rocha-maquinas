@@ -1,4 +1,4 @@
-import { keyframes } from "@chakra-ui/react";
+import { keyframes } from "@emotion/react";
 
 const horizontalSlideKeyframes = keyframes`
 	0% {
