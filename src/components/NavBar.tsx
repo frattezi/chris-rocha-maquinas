@@ -19,16 +19,17 @@ import { useRef } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 import { LgLogo, SmLogo } from "@icons/Logo";
+import { usePathname } from "next/navigation";
 
-const MenuItems = () => (
+const MenuItems = ({ currentPath }: { currentPath: string }) => (
 	<Flex
 		flexDir={{ base: "column", sm: "row" }}
-		alignItems={"flex-end"}
-		gap={{ base: 4, sm: 0 }}
-		w="full"
+		alignItems="flex-end"
+		gap={{ base: 4, sm: 8 }}
+		w={{ base: "full", sm: "auto" }}
 	>
 		<Link href="/contatos" aria-label="Página de contato">
-			<Button variant="ghost" size="sm">
+			<Button variant="ghost" size="sm" isActive={currentPath === "contatos"}>
 				Contato
 			</Button>
 		</Link>
@@ -38,23 +39,24 @@ const MenuItems = () => (
 		</Show>
 
 		<Link href="/produtos" aria-label="Página de produtos">
-			<Button variant="ghost" size="sm">
+			<Button variant="ghost" size="sm" isActive={currentPath === "produtos"}>
 				Produtos
 			</Button>
 		</Link>
 	</Flex>
 );
 
-const LgScreenNavBar = () => (
-	<HStack justifyContent="space-between" px={16} py={6}>
+const LgScreenNavBar = ({ currentPath }: { currentPath: string }) => (
+	<HStack justifyContent="space-between" px={16} py={6} w="full">
 		<Link href="/">
 			<LgLogo w={56} h={12} />
 		</Link>
-		<MenuItems />
+
+		<MenuItems currentPath={currentPath} />
 	</HStack>
 );
 
-const SmScreenNavBar = () => {
+const SmScreenNavBar = ({ currentPath }: { currentPath: string }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const btnRef = useRef();
 
@@ -96,7 +98,7 @@ const SmScreenNavBar = () => {
 
 					<DrawerBody>
 						<VStack gap={8}>
-							<MenuItems />
+							<MenuItems currentPath={currentPath} />
 						</VStack>
 					</DrawerBody>
 				</DrawerContent>
@@ -106,13 +108,16 @@ const SmScreenNavBar = () => {
 };
 
 export function NavBar() {
+	const pathname = usePathname();
+	const currentPath = pathname.split("/")[1];
+
 	return (
 		<>
 			<Show above="lg">
-				<LgScreenNavBar />
+				<LgScreenNavBar currentPath={currentPath} />
 			</Show>
 			<Show below="lg">
-				<SmScreenNavBar />
+				<SmScreenNavBar currentPath={currentPath} />
 			</Show>
 		</>
 	);
